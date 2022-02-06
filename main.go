@@ -16,6 +16,10 @@ type Robot struct{}
 
 func (Robot) Run() { fmt.Println("geek geek") }
 
+type Dolfin struct{}
+
+func (Dolfin) Speak() { fmt.Println("キュイキュイ") }
+
 type Runner interface {
 	Run()
 }
