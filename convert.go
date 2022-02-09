@@ -1,16 +1,21 @@
 package main
 
-type File interface {
-	Read([]byte) (int, error)
+type Writer interface {
 	Write([]byte) (int, error)
-	Seek(int64, int) (int64, error)
-	Close() error
 }
 
 type Document struct {
-	Name string
+	Name    string
+	Content []byte
 }
 
-func Save(f File, doc *Document) error {
+type writer struct {
+}
+
+func (writer) Write([]byte) (int, error) { return 1, nil }
+
+var _ Writer = (*writer)(nil)
+
+func Save(f Writer, doc *Document) error {
 	return nil
 }
