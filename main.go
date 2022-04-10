@@ -24,12 +24,24 @@ type Runner interface {
 	Run()
 }
 
+type Speaker interface {
+	Speak()
+}
+
 func main() {
 	Race([]Runner{Robot{}, Dog{}, Cat{}})
+	fmt.Println("-----")
+	Speak([]Speaker{Dog{}, Cat{}, Dolfin{}})
 }
 
 func Race(runners []Runner) {
 	for _, runner := range runners {
 		runner.Run()
+	}
+}
+
+func Speak(speakers []Speaker) {
+	for _, speaker := range speakers {
+		speaker.Speak()
 	}
 }
